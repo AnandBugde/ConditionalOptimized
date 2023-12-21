@@ -7,3 +7,5 @@ If entityInput is not provided (empty), it won't filter based on entity.
 
 This way, users can provide any combination of search criteria (name, age, or entity), 
 and the filtering will adapt accordingly. It's a concise and flexible way to handle multiple search criteria without the need for explicit **if-else** statements.
+
+![image](https://github.com/Catalysttech/ConditionalOptimized/assets/47662789/efda9a7a-5ce7-4a7a-8613-7a8ee70db90f)
