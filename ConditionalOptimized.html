@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filter People</title>
+</head>
+<body>
+
+  <h1>Filter People</h1>
+
+  <label for="nameInput">Name:</label>
+  <input type="text" id="nameInput" placeholder="Enter name">
+
+  <label for="ageInput">Age:</label>
+  <input type="text" id="ageInput" placeholder="Enter age">
+
+  <label for="entityInput">Entity:</label>
+  <input type="text" id="entityInput" placeholder="Enter entity">
+
+  <button onclick="filterPeople()">Search</button>
+
+  <div id="result-container">
+    <!-- Results will be displayed here -->
+  </div>
+
+  <script>
+    const people = [
+      { name: 'Adam', age: 30, Entity: 1 },
+      { name: 'Bob', age: 40, Entity: 2 },
+      { name: 'Carl', age: 30, Entity: 3 },
+      { name: 'Carl', age: 40, Entity: 1 }
+    ];
+
+    const filterPeople = () => {
+      const nameInput = document.getElementById('nameInput').value.toLowerCase();
+      const ageInput = document.getElementById('ageInput').value.toLowerCase();
+      const entityInput = document.getElementById('entityInput').value.toLowerCase();
+
+      const results = people.filter(element => {
+        return (
+          (nameInput === '' || element.name.toLowerCase().includes(nameInput)) &&
+          (ageInput === '' || element.age.toString().includes(ageInput)) &&
+          (entityInput === '' || element.Entity.toString().includes(entityInput))
+        );
+      });
+
+      displayResults(results);
+    };
+
+    const displayResults = (data) => {
+      const resultContainer = document.getElementById('result-container');
+      resultContainer.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+    };
+
+    // Display the initial results
+    filterPeople();
+  </script>
+
+</body>
+</html>
